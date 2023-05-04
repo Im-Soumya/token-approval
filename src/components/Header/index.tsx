@@ -1,5 +1,6 @@
 import { FC, useEffect } from 'react'
 import { useMoralis } from 'react-moralis'
+import Spinner from '../Spinner'
 
 const Header: FC = () => {
   const { enableWeb3, account, Moralis, deactivateWeb3, isWeb3Enabled, isWeb3EnableLoading } = useMoralis()
@@ -43,7 +44,10 @@ const Header: FC = () => {
             onClick={collectWallet}
             disabled={isWeb3EnableLoading}
           >
-            Connect wallet
+            {isWeb3EnableLoading
+              ? <Spinner />
+              : <span>Connect wallet</span>
+            }
           </button>
         )
       }

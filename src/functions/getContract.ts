@@ -1,5 +1,4 @@
-import { ethers, Contract } from "ethers"
-// import { useMoralis } from "react-moralis"
+import { ethers } from "ethers"
 
 export function getSigner(library: ethers.providers.Web3Provider, account?: string) : ethers.providers.JsonRpcSigner {
     return library.getSigner(account).connectUnchecked()
@@ -13,5 +12,5 @@ export function getContract(address: string, ABI: any, library: ethers.providers
     if(!ethers.utils.isAddress(address) || address === ethers.constants.AddressZero) {
         throw Error(`Invalid 'address' parameter ${address}`)
     }
-    return new Contract(address, ABI, getProviderOrSigner(library, account))
+    return new ethers.Contract(address, ABI, getProviderOrSigner(library, account))
 }
