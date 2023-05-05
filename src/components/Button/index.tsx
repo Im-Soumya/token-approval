@@ -21,16 +21,12 @@ const Button: FC<IInputProps> = ({ tokenAddress, spenderAddress, amountToApprove
                 </div>
             </>
         )
-    } else {
-        return (
-            <>
-                <Dropdown tokenAddress={tokenAddress!} spenderAddress={spenderAddress!} amountToApprove={amountToApprove!} />
-            </>
-        )
     }
-
+    
     return (
-        <></>
+        <>
+            <Dropdown tokenAddress={tokenAddress!} spenderAddress={spenderAddress!} amountToApprove={amountToApprove!} />
+        </>
     )
 }
 

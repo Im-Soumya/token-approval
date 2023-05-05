@@ -9,7 +9,7 @@ export enum ApprovalState {
 
 export function useApprove(tokenAddress: string | undefined, spenderAddress: string | undefined, amountToApprove: string | undefined) {
   const [ currentAllowance, setCurrentAllowance ] = useState<string>("")
-  const [ isApproved, setIsApproved ] = useState<boolean>()
+  const [ isApproved, setIsApproved ] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchAllowance = async () => {
